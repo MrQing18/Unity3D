@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class WarrningManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+    public static List<WarrningModel> errors = new List<WarrningModel>();
+
+    public WarrningWindow window;
+    void Update () {
+		if (errors.Count > 0)
+        {
+            WarrningModel err = errors[0];
+            errors.RemoveAt(0);
+            window.active(err);
+        }
 	}
 }

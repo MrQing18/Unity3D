@@ -20,12 +20,12 @@ public class LoginScreen : MonoBehaviour {
     {
         if (accountInput.text.Length == 0 || accountInput.text.Length > 6)
         {
-            Debug.Log("账号不合法");
+            WarrningManager.errors.Add(new WarrningModel("账号不合法", delegate { Debug.Log("回调测试"); } ) );
             return;
         }
         if (passwordInput.text.Length == 0 || passwordInput.text.Length > 6)
         {
-            Debug.Log("密码不合法");
+            WarrningManager.errors.Add(new WarrningModel("密码不合法"));
             return;
         }
         Debug.Log("申请登陆");
@@ -44,17 +44,17 @@ public class LoginScreen : MonoBehaviour {
     {
         if (regAccountInput.text.Length == 0 || regAccountInput.text.Length > 6)
         {
-            Debug.Log("账号不合法");
+            WarrningManager.errors.Add(new WarrningModel("账号不合法"));
             return;
         }
         if (regpwInput.text.Length == 0 || regpwInput.text.Length > 6)
         {
-            Debug.Log("密码不合法");
+            WarrningManager.errors.Add(new WarrningModel("密码不合法"));
             return;
         }
         if (!regpwInput.text.Equals(regpw1Input.text))
         {
-            Debug.Log("两次密码不一致");
+            WarrningManager.errors.Add(new WarrningModel("两次密码不一致"));
             return;
         }
         Debug.Log("申请注册");
